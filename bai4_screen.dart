@@ -1,0 +1,101 @@
+import 'package:flutter/material.dart';
+
+class Bai4Screen extends StatefulWidget {
+  const Bai4Screen({super.key});
+
+  @override
+  State<Bai4Screen> createState() => _Bai4ScreenState();
+}
+
+class _Bai4ScreenState extends State<Bai4Screen> {
+  int _counter = 10;
+
+  void _increment() => setState(() => _counter++);
+  void _decrement() => setState(() => _counter--);
+  void _reset() => setState(() => _counter = 10);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Ứng dụng Đếm số'),
+        backgroundColor: Colors.blue,
+        foregroundColor: Colors.white,
+        centerTitle: true,
+      ),
+      body: Container(
+        width: double.infinity,
+        color: Colors.grey[100],
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text('Giá trị hiện tại:',
+                style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black87)),
+            const SizedBox(height: 30),
+            Text('$_counter',
+                style: TextStyle(
+                    fontSize: 120,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.green[600])),
+            const SizedBox(height: 50),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: _decrement,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 32, vertical: 16),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
+                    elevation: 3,
+                  ),
+                  child: const Text('- Giảm',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                ),
+                const SizedBox(width: 16),
+                ElevatedButton(
+                  onPressed: _reset,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 32, vertical: 16),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
+                    elevation: 3,
+                  ),
+                  child: const Text('Đặt lại',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                ),
+                const SizedBox(width: 16),
+                ElevatedButton(
+                  onPressed: _increment,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 32, vertical: 16),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30)),
+                    elevation: 3,
+                  ),
+                  child: const Text('+ Tăng',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
